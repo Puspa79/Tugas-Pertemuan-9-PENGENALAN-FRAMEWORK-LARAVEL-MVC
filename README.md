@@ -19,10 +19,10 @@
 ### Dokumentasi Screenshot:
 
 #### 1. Tampilan Daftar Anggota (`/anggota`)
-![Daftar Anggota](screenshoot/DaftarAnggota.png)
+![Daftar Anggota](tugas/screenshoot/DaftarAnggota.png)
 
 #### 2. Detail Anggota (`/anggota/1`)
-![Detail Anggota](screenshoot/Anggota-1.png)
+![Detail Anggota](tugas/screenshoot/Anggota-1.png)
 
 
 ## Tugas 2 - Controller Kategori Buku (MVC Lengkap)
@@ -37,10 +37,10 @@
 ### Dokumentasi Screenshot:
 
 #### 1. Tampilan Daftar Kategori (`/kategori`)
-![Daftar Kategori](screenshoot/DaftarKategori.png)
+![Daftar Kategori](tugas/screenshoot/DaftarKategori.png)
 
 #### 2. Detail Kategori (`/kategori/1`)
-![Detail Kategori](screenshoot/Kategori2.png)
+![Detail Kategori](tugas/screenshoot/Kategori2.png)
 
 #### 3. Hasil Pencarian (`/kategori/search/programming`)
-![Hasil Search](screenshoot/HasilPencarian.png)
+![Hasil Search](tugas/screenshoot/HasilPencarian.png)
