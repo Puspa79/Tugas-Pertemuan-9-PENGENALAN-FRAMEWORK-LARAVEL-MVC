@@ -45,8 +45,7 @@
                 
                 <div class="d-grid mt-5">
                     <a href="{{ route('anggota.index') }}" class="btn btn-light border py-2.5 text-muted fw-medium shadow-sm hover-elevate">
-                        ← Kembali ke Daftar Anggota
-                    </a>
+                        ← Kembali ke Daftar Anggota</a>
                 </div>
             </div>
         </div>

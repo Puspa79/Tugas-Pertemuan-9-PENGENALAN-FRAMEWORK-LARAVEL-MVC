@@ -22,7 +22,7 @@
 ![Daftar Anggota](screenshoot/DaftarAnggota.png)
 
 #### 2. Detail Anggota (`/anggota/1`)
-![Detail Anggota](screenshoot/Anggota1.png)
+![Detail Anggota](screenshoot/Anggota-1.png)
 
 
 ## Tugas 2 - Controller Kategori Buku (MVC Lengkap)
