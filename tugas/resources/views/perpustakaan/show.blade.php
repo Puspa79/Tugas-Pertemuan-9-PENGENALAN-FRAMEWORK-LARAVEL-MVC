@@ -1,95 +1,52 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $buku['judul'] }}</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    <div class="container mt-5">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/perpustakaan">Perpustakaan</a></li>
-                <li class="breadcrumb-item active">{{ $buku['judul'] }}</li>
-            </ol>
-        </nav>
-        
-        <div class="card">
-            <div class="card-header bg-primary text-white">
-                <h3 class="mb-0">{{ $buku['judul'] }}</h3>
+@extends('layouts.app')
+
+@section('title', 'Detail Koleksi Buku')
+
+@section('content')
+<div class="container" style="max-width: 700px;">
+    <div class="mb-4">
+        <a href="/perpustakaan" class="text-decoration-none small fw-bold">← Kembali ke Daftar Buku</a>
+    </div>
+
+    <div class="card p-4">
+        <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+                <span class="fs-1 me-3">📚</span>
+                <div>
+                    <span class="badge bg-primary px-2 py-1 mb-1">Koleksi Buku</span>
+                    <h2 class="fw-bold text-dark mb-0">{{ $buku->judul }}</h2>
+                </div>
             </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-8">
-                        <table class="table table-borderless">
-                            <tr>
-                                <th width="150">ID Buku</th>
-                                <td>: {{ $buku['id'] }}</td>
-                            </tr>
-                            <tr>
-                                <th>Judul</th>
-                                <td>: {{ $buku['judul'] }}</td>
-                            </tr>
-                            <tr>
-                                <th>Pengarang</th>
-                                <td>: {{ $buku['pengarang'] }}</td>
-                            </tr>
-                            <tr>
-                                <th>Penerbit</th>
-                                <td>: {{ $buku['penerbit'] }}</td>
-                            </tr>
-                            <tr>
-                                <th>Tahun Terbit</th>
-                                <td>: {{ $buku['tahun'] }}</td>
-                            </tr>
-                            <tr>
-                                <th>Harga</th>
-                                <td>: Rp {{ number_format($buku['harga'], 0, ',', '.') }}</td>
-                            </tr>
-                            <tr>
-                                <th>Stok</th>
-                                <td>: 
-                                    @if ($buku['stok'] > 0)
-                                        <span class="badge bg-success">{{ $buku['stok'] }} tersedia</span>
-                                    @else
-                                        <span class="badge bg-danger">Habis</span>
-                                    @endif
-                                </td>
-                            </tr>
-                        </table>
-                        
-                        <hr>
-                        
-                        <h5>Deskripsi:</h5>
-                        <p>{{ $buku['deskripsi'] }}</p>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card bg-light">
-                            <div class="card-body text-center">
-                                <h4 class="text-primary">Rp {{ number_format($buku['harga'], 0, ',', '.') }}</h4>
-                                
-                                @if ($buku['stok'] > 0)
-                                    <button class="btn btn-success btn-lg w-100 mt-3">
-                                        <i class="bi bi-cart-plus"></i> Pinjam Buku
-                                    </button>
-                                @else
-                                    <button class="btn btn-secondary btn-lg w-100 mt-3" disabled>
-                                        Stok Habis
-                                    </button>
-                                @endif
-                            </div>
-                        </div>
+
+            <hr class="text-muted my-4">
+
+            <div class="row g-4 text-start">
+                <div class="col-md-6">
+                    <span class="text-muted d-block small">Nama Pengarang / Penulis</span>
+                    <strong class="text-dark fs-5">{{ $buku->pengarang ?? 'Tidak Diketahui' }}</strong>
+                </div>
+                <div class="col-md-6">
+                    <span class="text-muted d-block small">Tahun Terbit</span>
+                    <strong class="text-dark fs-5">{{ $buku->tahun_terbit ?? '-' }}</strong>
+                </div>
+                <div class="col-md-6">
+                    <span class="text-muted d-block small">Harga Buku</span>
+                    <strong class="text-success fs-5">Rp {{ number_format($buku->harga ?? 0, 0, ',', '.') }}</strong>
+                </div>
+                <div class="col-md-6">
+                    <span class="text-muted d-block small">Sisa Ketersediaan Stok</span>
+                    <div class="mt-1">
+                        @if(($buku->stok ?? 0) > 5)
+                            <span class="badge bg-success px-3 py-2 fs-6">Aman ({{ $buku->stok }} Unit)</span>
+                        @elif(($buku->stok ?? 0) > 0)
+                            <span class="badge bg-warning text-dark px-3 py-2 fs-6">Menipis ({{ $buku->stok }} Unit)</span>
+                        @else
+                            <span class="badge bg-danger px-3 py-2 fs-6">Habis Terjual</span>
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
-        
-        <div class="mt-3">
-            <a href="/perpustakaan" class="btn btn-secondary">
-                <i class="bi bi-arrow-left"></i> Kembali ke Daftar Buku
-            </a>
-        </div>
     </div>
-</body>
-</html>
+</div>
+@endsection
