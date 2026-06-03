@@ -42,5 +42,5 @@
 #### 2. Detail Kategori (`/kategori/1`)
 ![Detail Kategori](screenshoot/Kategori2.png)
 
-#### 3. Hasil Pencarian (`/kategori/search/programming`)
+#### 3. Hasil Pencarian (`/kategori/search/desain`)
 ![Hasil Search](screenshoot/HasilPencarian.png)
